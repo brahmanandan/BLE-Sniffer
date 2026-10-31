@@ -44,6 +44,8 @@ A bench test suite for TV remotes (BLE voice remotes and IR remotes) built aroun
                          (firmware)                     (PC, port 8000)                  webapp/
 ```
 
+[![System architecture](doc/architecture.png)](doc/architecture.svg)
+
 The XIAO runs **one of two firmware images** (one at a time, chosen by flashing). The bridge and the
 web app only ever talk to the first one:
 
@@ -92,7 +94,7 @@ charges its own LiPo. Its only blind spot is sub-GHz.
 - **Seeed XIAO nRF52840** (plain or Sense) and a USB-C data cable.
 - Linux PC (tested on Ubuntu, Python 3.10+). macOS/Windows work for the bridge; the flashing helper
   is Linux/macOS-oriented.
-- **For IR (optional):** an M5Stack **Unit IR (U002)** wired to the XIAO. See `hardware/ir_connection.svg`:
+- **For IR (optional):** an M5Stack **Unit IR (U002)** wired to the XIAO as below (diagram source: `hardware/ir_connection.svg`):
 
   | Unit IR wire | XIAO pad |
   |---|---|
@@ -100,6 +102,8 @@ charges its own LiPo. Its only blind spot is sub-GHz.
   | Red (5V) | **3V3** (not 5V; the nRF52840 pins are not 5V-tolerant) |
   | Yellow (IR_TX) | D1 |
   | White (IR_RX) | D0 |
+
+  [![Unit IR to XIAO nRF52840 wiring](doc/ir_connection.png)](doc/ir_connection.svg)
 
 - **For battery operation (optional):** a 1-cell 41 × 10 × 6 mm LiPo **with a built-in protection
   board (PCM)**, soldered to the `BAT+`/`BAT−` pads under the XIAO. It charges over USB-C (the on-board
