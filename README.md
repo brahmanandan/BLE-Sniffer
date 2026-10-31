@@ -290,9 +290,9 @@ key press that wakes it) depends on the model:
 
 | Remote | Reconnect with stored keys | What to do |
 |---|---|---|
-| **Fire TV remote** (30:4D:1F:13:82:8B), tested 2026-10-27 | works: keys and battery keep coming | press any key to wake it; no re-pairing |
-| **Android TV voice remote** (60:74:B1:80:AF:1E), tested 2026-10-26 | link comes up but stays **silent** | pairing mode at the start of each session (below) |
-| **LG Magic Remote** (F4:83:2C:6F:C4:98), tested 2026-10-29 | works | keys travel inside its 100/s motion stream as LG IR codes; the bridge decodes them (`backend/lg_magic.py`). Unknown codes show as `LG_0x..`. |
+| **Fire TV remote**, tested 2026-10-27 | works: keys and battery keep coming | press any key to wake it; no re-pairing |
+| **Android TV voice remote**, tested 2026-10-26 | link comes up but stays **silent** | pairing mode at the start of each session (below) |
+| **LG Magic Remote**, tested 2026-10-29 | works | keys travel inside its 100/s motion stream as LG IR codes; the bridge decodes them (`backend/lg_magic.py`). Unknown codes show as `LG_0x..`. |
 
 #### One pairing per session (Android TV voice remote)
 
@@ -341,16 +341,22 @@ for example after the remote was factory-reset.
 
 ### 6.4 About addresses
 
-The jig shows addresses in standard Bluetooth order (most significant byte first). The remotes used during
-development are **60:74:B1:80:AF:1E** (Android TV voice remote) and **30:4D:1F:13:82:8B** (Fire TV
-remote). Older `ble_probe.py` output and `BT-sniffed.txt` printed every address **byte-reversed**
-(e.g. `1E:AF:80:B1:74:60`); that bug is fixed.
+The jig shows addresses in standard Bluetooth order (most significant byte first). Older
+`ble_probe.py` output and `BT-sniffed.txt` printed every address **byte-reversed**; that bug is fixed.
 
 ---
 
 ## 7. Using each tab
 
 ### Connect
+
+Screenshots from a bench session (addresses, names, vendor and serial numbers masked; taken with
+firmware 0.2, so the Pair button, newer badges and the *Remotes only* filter are not shown yet):
+
+| Scan → connect | Bonded remote, GATT and Remote info | GATT reads in the Log |
+|---|---|---|
+| [![Scan list with a remote connected](doc/images/readme/connect-scan.png)](doc/images/readme/connect-scan.png) | [![Bonded remote with GATT and Remote info](doc/images/readme/connect-bonded.png)](doc/images/readme/connect-bonded.png) | [![Log of GATT reads](doc/images/readme/connect-log.png)](doc/images/readme/connect-log.png) |
+
 - **Scan** lists nearby devices by signal strength. Badges: **HID** (keyboard/remote service),
   **DIRECT** (directed advert aimed at a specific host), **RPA / RANDOM / NRPA** (address type),
   **PAIRING** / **NOT PAIRING** (whether a remote's advert flags say it is discoverable; a remote
@@ -502,7 +508,7 @@ chmod +x ~/.local/lib/wireshark/extcap/nrf_sniffer_ble.sh ~/.local/lib/wireshark
 pip install pyserial            # for the Python that Wireshark runs the plugin with
 # 3. restart Wireshark -> choose the interface "nRF Sniffer for Bluetooth LE",
 #    open View ▸ Interface Toolbars ▸ nRF Sniffer for Bluetooth LE, pick the remote's address
-#    (60:74:B1:80:AF:1E on the dev unit) as the device to follow, and enable following on all PHYs.
+#    as the device to follow, and enable following on all PHYs.
 ```
 
 To catch a connection being set up, choose the remote **before** it connects (for example, then
@@ -514,7 +520,7 @@ the pairing itself, e.g. while you re-pair the remote. When you're done, flash x
 
 ```bash
 .venv/bin/python ble_probe.py                          # scan, choose a device, follow it
-.venv/bin/python ble_probe.py --address 60:74:B1:80:AF:1E
+.venv/bin/python ble_probe.py --address AA:BB:CC:DD:EE:FF
 .venv/bin/python ble_probe.py --name RCU --raw
 ```
 
@@ -652,8 +658,8 @@ from its cache to a newly opened page also carry `"cached":true`.
 | `{"cmd":"ping"}` | reply with `hello` |
 | `{"cmd":"scan","sec":6}` | scan (`0` = until `scan_stop`) |
 | `{"cmd":"scan_stop"}` | stop scanning |
-| `{"cmd":"connect","addr":"30:4D:1F:13:82:8B","atype":"public"}` | connect (`random` / `public`) |
-| `{"cmd":"pair","addr":"30:4D:1F:13:82:8B","atype":"public"}` | one step: connect → pair fresh → subscribe; retries a missed connection twice; locks the session to it |
+| `{"cmd":"connect","addr":"AA:BB:CC:DD:EE:FF","atype":"public"}` | connect (`random` / `public`) |
+| `{"cmd":"pair","addr":"AA:BB:CC:DD:EE:FF","atype":"public"}` | one step: connect → pair fresh → subscribe; retries a missed connection twice; locks the session to it |
 | `{"cmd":"bond"}` | pair and bond (Just Works; passkey fallback on 0x83) |
 | `{"cmd":"lock","addr":"…"}` / `{"cmd":"unlock"}` | follow only this remote / any bonded remote (persisted) |
 | `{"cmd":"bonds"}` / `{"cmd":"bond_delete","addr":"…"}` | list bonds / forget one remote |
