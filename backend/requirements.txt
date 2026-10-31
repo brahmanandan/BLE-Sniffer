@@ -1,0 +1,6 @@
+# Bridge + web app (backend/bridge.py) and tools. Python 3.10+.
+aiohttp>=3.9          # HTTP + WebSocket server
+pyserial>=3.5         # USB serial to the XIAO (also used by ble_probe.py and the extcap plugin)
+intelhex>=2.3         # firmware/make_uf2.py: SoftDevice + app -> full UF2
+adafruit-nrfutil>=0.5 # only for building the firmware with arduino-cli (Seeed nRF52 core's packaging step)
+# SnifferAPI (Nordic, not on PyPI) is vendored in extcap/SnifferAPI/.

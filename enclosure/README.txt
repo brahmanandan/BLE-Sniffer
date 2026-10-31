@@ -1,0 +1,4 @@
+Seeed Studio XIAO nRF52840 Sense Plus Dimension in DXF by seeedstudio on Thingiverse: https://www.thingiverse.com/thing:7064230
+
+Summary:
+This is the DXF file of the XIAO nRF52840 Sense Plus.The XIAO nRF52840 Sense Plus is a development board utilizing the Nordic nRF52840 chip with long-range, high-speed BLE capabilities. It supports ultra-low power operation and integrates lithium battery management, while supporting hardware encryption and embedded operating systems like Zephyr. The Plus variant features 9 additional GPIOs, onboard 6-aix IMU and microphone. Ideal for advanced Bluetooth projects requiring expanded I/Os via SMD board-to-board soldering. https://www.seeedstudio.com/Seeed-Studio-XIAO-nRF52840-Sense-Plus-p-6360.html

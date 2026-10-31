@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Remote Test Jig</title>
+  <meta name="description" content="XIAO nRF52840 bench test suite for BLE voice and IR TV remotes">
+  <meta name="theme-color" content="#0f1419" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Remote Jig">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="banner" id="banner">
+    <div class="banner-row">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="7" r="1.6"/><path d="M10 12h4M12 10v4"/></svg>
+        <span>Remote Jig</span>
+      </div>
+      <div class="link-pill" id="ws-pill" title="Bridge connection"><i></i><span>offline</span></div>
+    </div>
+    <div class="banner-stats">
+      <div class="stat"><label>Board</label><b id="st-mode">—</b></div>
+      <div class="stat"><label>Firmware</label><b id="st-fw">—</b></div>
+      <div class="stat"><label>Port</label><b id="st-port">—</b></div>
+      <div class="stat"><label>Remote</label><b id="st-link">—</b></div>
+      <div class="stat"><label>RSSI</label><b id="st-rssi">—</b></div>
+      <div class="stat stat-batt"><label>Remote battery</label>
+        <b><span class="batt" id="st-rbatt-gauge"><i></i></span><span id="st-rbatt">—</span></b></div>
+      <div class="stat stat-batt"><label>Jig battery</label>
+        <b><span class="batt" id="st-batt-gauge"><i></i></span><span id="st-batt">—</span></b></div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" data-tab="connect">Connect</button>
+    <button role="tab" data-tab="keys">Keys</button>
+    <button role="tab" data-tab="voice">Voice</button>
+    <button role="tab" data-tab="ir">IR</button>
+    <button role="tab" data-tab="test">Test</button>
+  </nav>
+
+  <main>
+    <div class="mode-hint" id="mode-hint" hidden></div>
+
+    <!-- ============================ CONNECT ============================ -->
+    <section class="panel" id="tab-connect" role="tabpanel" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h2>Scan</h2>
+            <div class="row gap">
+              <select id="scan-sec" aria-label="Scan duration">
+                <option value="4">4 s</option><option value="8" selected>8 s</option><option value="20">20 s</option>
+              </select>
+              <button class="btn primary" id="btn-scan">Scan</button>
+            </div>
+          </div>
+          <p class="hint">Put the remote in <b>pairing mode</b> first (e.g. hold <i>Back + Home</i> / <i>OK + Vol−</i>, see the remote's manual). It then advertises undirected (no <span class="badge">DIRECT</span>).</p>
+          <div class="row gap wrap filters">
+            <label class="chk" title="HID devices, remote/keyboard appearances and remotes bonded to the jig"><input type="checkbox" id="scan-hid-only"> Remotes only</label>
+            <label class="chk"><input type="checkbox" id="scan-named-only"> named only</label>
+            <input type="search" id="scan-filter" placeholder="filter address / name" aria-label="Filter devices">
+          </div>
+          <ul class="devlist" id="scan-list"><li class="empty">No devices yet — press Scan.</li></ul>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Link</h2><span class="stage" id="link-stage">idle</span></div>
+          <div class="row gap wrap">
+            <input id="conn-addr" class="mono grow" placeholder="AA:BB:CC:DD:EE:FF" aria-label="Remote address" autocomplete="off" spellcheck="false">
+            <select id="conn-atype" aria-label="Address type"><option>random</option><option>public</option></select>
+          </div>
+          <div class="row gap wrap btns">
+            <button class="btn primary" id="btn-pair" title="Connect, pair and subscribe in one step (retries a connection the remote misses). Pairs fresh: any old bond with this remote is replaced.">Pair</button>
+            <button class="btn" id="btn-connect" title="Connect only (then Bond)">Connect</button>
+            <button class="btn" id="btn-bond">Bond</button>
+            <button class="btn" id="btn-subscribe">Subscribe all</button>
+            <button class="btn" id="btn-disconnect">Disconnect</button>
+            <button class="btn danger ghost" id="btn-clear-bonds">Clear bonds</button>
+          </div>
+          <dl class="kv" id="link-kv">
+            <dt>Address</dt><dd id="kv-addr">—</dd>
+            <dt>Connected</dt><dd id="kv-conn">—</dd>
+            <dt>Bonded</dt><dd id="kv-bonded">—</dd>
+            <dt>Encrypted</dt><dd id="kv-secured">—</dd>
+            <dt>MTU</dt><dd id="kv-mtu">—</dd>
+            <dt>PHY</dt><dd id="kv-phy">—</dd>
+            <dt>Interval</dt><dd id="kv-int">—</dd>
+            <dt>RSSI</dt><dd id="kv-rssi">—</dd>
+            <dt>Remote battery</dt><dd id="kv-rbatt">—</dd>
+            <dt>Services</dt><dd id="kv-svcs">—</dd>
+            <dt>Live</dt><dd id="kv-live">—</dd>
+            <dt>Session lock</dt><dd id="kv-lock">—</dd>
+          </dl>
+          <div class="passkey" id="passkey-box" hidden>
+            <div>Passkey pairing — type this on the remote, then press OK / Enter:</div>
+            <div class="code mono" id="passkey-code"></div>
+          </div>
+          <div class="live-hint" id="live-hint" hidden>Paired. <b>Press any key on the remote</b> to confirm the link is live
+            (this remote has no voice service, so the jig can't check it by itself).</div>
+          <details class="adv bonds" id="bonds-box">
+            <summary>Bonded remotes <span class="muted small" id="bonds-count"></span></summary>
+            <p class="hint small">The jig reconnects by itself only to the <b>locked</b> remote (the one you last paired or
+              connected), so other bonded units on the bench can't take over. 🔒 locks a remote, ✕ forgets it.</p>
+            <ul class="bondlist" id="bond-list"><li class="empty">No bonds.</li></ul>
+            <div class="row gap"><button class="btn ghost small" id="btn-bonds-refresh">Refresh</button>
+              <button class="btn ghost small" id="btn-unlock">Unlock (follow any bonded remote)</button></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h2>GATT</h2>
+            <div class="row gap"><span class="muted small" id="gatt-sum"></span>
+            <button class="btn ghost small" id="btn-gatt-read" title="Read every readable characteristic again">Read values</button></div></div>
+          <div class="gatt" id="gatt-tree"><p class="empty">Connect to discover services.</p></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Remote info</h2>
+            <div class="row gap"><span class="muted small" id="info-sum"></span>
+            <button class="btn ghost small" id="btn-info-copy" title="Copy as text">Copy</button></div></div>
+          <dl class="kv info" id="remote-info"><dt>—</dt><dd class="muted">Connect to a remote to read its Device Information.</dd></dl>
+        </div>
+      </div>
+
+      <div class="card log-card">
+          <div class="card-head"><h2>Log</h2>
+            <div class="row gap wrap">
+            <label class="chk persist" title="Write everything the jig reports, and every command, to reports/logs/session_&lt;date-time&gt;.log on the PC — in the background, even with no browser open. A new file each time you tick it.">
+              <input type="checkbox" id="log-persist"> Save to file</label>
+            <a class="small persist-file" id="log-persist-file" target="_blank" hidden></a>
+            <button class="btn ghost small" id="btn-log-stats" aria-pressed="false" title="Show a live table of reads and notifications per characteristic (does not change the log)">Summary</button>
+            <button class="btn ghost small" id="btn-log-copy" title="Copy the whole session log (oldest first)">Copy</button>
+            <button class="btn ghost small" id="btn-log-dl" title="Download the session log as a .txt file">Download</button>
+            <button class="btn ghost small" id="btn-log-clear">Clear</button></div></div>
+          <section class="log-summary" id="log-summary" hidden aria-label="GATT traffic summary">
+            <div class="row gap sum-head">
+              <b>Summary — GATT traffic per characteristic</b>
+              <span class="muted small">live · since this page opened</span>
+              <span class="grow"></span>
+              <button class="btn ghost small" id="btn-sum-copy">Copy</button>
+              <button class="btn small" id="btn-sum-close" title="Close the summary and return to the log">✕ Close</button>
+            </div>
+            <div class="table-wrap"><table class="tbl mono" id="sum-table">
+              <thead><tr><th>handle</th><th>characteristic</th><th>reads</th><th>notifications</th><th>last</th><th>avg interval</th></tr></thead>
+              <tbody></tbody></table></div>
+          </section>
+          <ol class="log mono" id="conn-log"></ol>
+          <details class="adv">
+            <summary>Firmware</summary>
+            <p class="hint">This app drives the <b>xiao-test-tool</b> image only. To watch a real remote⇄STB link passively, flash the <b>Nordic sniffer</b> image and capture in <b>Wireshark</b> (README ▸ Passive capture); flash xiao-test-tool back afterwards — from the sniffer you must double-tap RST when asked.</p>
+            <div class="row gap wrap">
+              <button class="btn" data-flash="sniffer">Flash Nordic sniffer (for Wireshark)</button>
+              <button class="btn" data-flash="tool">Re-flash xiao-test-tool</button>
+            </div>
+          </details>
+        </div>
+    </section>
+
+    <!-- ============================ KEYS ============================ -->
+    <section class="panel" id="tab-keys" role="tabpanel" hidden>
+      <div class="keys-layout">
+        <div class="card remote-card">
+          <div class="card-head"><h2>Remote</h2><span class="muted small" id="keys-profile" title="Test profile (Test tab)"></span>
+            <button class="btn ghost small" id="btn-map-key" title="Click, then pick a button and press the physical key to map an unknown usage">Map key</button>
+          </div>
+          <div class="remote" id="remote"></div>
+          <p class="hint small" id="map-hint" hidden></p>
+          <p class="hint small">Dashed buttons are optional in the Keys test.</p>
+        </div>
+        <div class="keys-side">
+          <div class="card">
+            <div class="card-head"><h2>Latency</h2><span class="muted small" id="lat-n"></span></div>
+            <div class="lat-grid">
+              <div><label>last</label><b id="lat-last">—</b></div>
+              <div><label>avg</label><b id="lat-avg">—</b></div>
+              <div><label>p95</label><b id="lat-p95">—</b></div>
+              <div><label>max</label><b id="lat-max">—</b></div>
+            </div>
+            <p class="hint small">Firmware notification → pixels on this screen: USB (½ RTT) + bridge → browser + render. The radio adds up to one connection interval (<span id="lat-int">—</span>) before that.</p>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Buttons seen</h2>
+              <span class="muted small" id="seen-count">0 / 0</span>
+              <button class="btn ghost small" id="btn-seen-reset">Reset</button></div>
+            <ul class="seenlist" id="seen-list"></ul>
+            <div id="seen-other-wrap" hidden><h3 class="small muted">Other usages</h3><ul class="seenlist other" id="seen-other"></ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>Key log</h2>
+          <div class="row gap"><label class="chk"><input type="checkbox" id="keys-show-up" checked> releases</label>
+          <button class="btn ghost small" id="btn-keys-clear">Clear</button></div></div>
+        <div class="table-wrap"><table class="tbl mono" id="keys-table">
+          <thead><tr><th>time</th><th>handle</th><th>report</th><th>usage</th><th>page</th><th></th><th>lat</th></tr></thead>
+          <tbody></tbody></table></div>
+      </div>
+      <div class="card" id="hiddata-card" hidden>
+        <div class="card-head"><h2>Other HID reports <span class="muted small">(not keys)</span></h2>
+          <button class="btn ghost small" id="btn-hiddata-clear">Clear</button></div>
+        <p class="hint small">Reports whose report map declares no key usages — vendor data such as motion/pointer
+          streams (e.g. LG Magic Remote). They are not decoded as keys. Bytes that changed since the previous report
+          are highlighted, which helps to find where a remote hides its key codes.</p>
+        <div class="table-wrap"><table class="tbl mono" id="hiddata-table">
+          <thead><tr><th>handle</th><th>report ID</th><th>count</th><th>rate</th><th>last report</th></tr></thead>
+          <tbody></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- ============================ VOICE ============================ -->
+    <section class="panel" id="tab-voice" role="tabpanel" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h2>Microphone</h2><span class="mic" id="mic-ind"><i></i><span>idle</span></span></div>
+          <div class="meter" id="voice-meter" aria-label="Voice level"><i></i></div>
+          <dl class="kv">
+            <dt>Codec</dt><dd id="v-codec">—</dd>
+            <dt>Notifications/s</dt><dd id="v-fps">—</dd>
+            <dt>Throughput</dt><dd id="v-bps">—</dd>
+            <dt>Stream frames</dt><dd id="v-frames">0</dd>
+            <dt>Recorded</dt><dd id="v-rec">—</dd>
+          </dl>
+          <div class="row gap wrap btns">
+            <button class="btn" id="btn-mic-open">Open mic</button>
+            <button class="btn" id="btn-mic-close">Close mic</button>
+            <button class="btn primary" id="btn-rec">● Record</button>
+            <button class="btn" id="btn-save">Save WAV</button>
+          </div>
+          <p class="hint small">Press the remote's mic button: the jig answers the voice service the way a TV would (MIC_OPEN) and the stream starts. Raw frames are always kept; WAV decoding is best-effort IMA-ADPCM.</p>
+          <div id="voice-saved"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Stream events</h2><button class="btn ghost small" id="btn-vlog-clear">Clear</button></div>
+          <ol class="log mono" id="voice-log"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ IR ============================ -->
+    <section class="panel" id="tab-ir" role="tabpanel" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h2>Send</h2><span class="muted small" id="ir-tx-status"></span></div>
+          <form class="row gap wrap" id="ir-send-form">
+            <select id="ir-proto" aria-label="Protocol"><option>NEC</option><option>SIRC</option></select>
+            <label class="field">addr<input id="ir-addr" class="mono" value="0x04" size="6"></label>
+            <label class="field">code<input id="ir-code" class="mono" value="0x08" size="6"></label>
+            <label class="field">repeats<input id="ir-rep" type="number" min="0" max="10" value="0" style="width:4em"></label>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+          <div class="card-head sub"><h3>Learned</h3>
+            <button class="btn small" id="btn-ir-learn">Learn next frame</button></div>
+          <ul class="learned" id="ir-learned"><li class="empty">Nothing learned yet.</li></ul>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Receive</h2>
+            <div class="row gap"><label class="chk"><input type="checkbox" id="ir-rx-on" checked> RX on</label>
+            <button class="btn ghost small" id="btn-ir-clear">Clear</button></div></div>
+          <div class="table-wrap"><table class="tbl mono" id="ir-table">
+            <thead><tr><th>time</th><th>proto</th><th>addr</th><th>code</th><th>rpt</th><th>marks</th><th></th></tr></thead>
+            <tbody></tbody></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TEST ============================ -->
+    <section class="panel" id="tab-test" role="tabpanel" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head"><h2>Test run</h2><span class="verdict" id="t-verdict"></span></div>
+          <div class="row gap wrap">
+            <label class="field grow">DUT label<input id="t-dut" placeholder="e.g. RCU serial / batch"></label>
+            <label class="field grow">Operator<input id="t-operator"></label>
+          </div>
+          <div class="row gap wrap">
+            <label class="field grow" title="Which buttons this remote must have and how its voice is tested. Auto picks from the connected remote's GATT services.">Remote profile
+              <select id="t-profile"></select></label>
+          </div>
+          <ol class="steps" id="t-steps"></ol>
+          <div class="row gap wrap btns">
+            <button class="btn primary" id="btn-t-run">Run all</button>
+            <button class="btn" id="btn-t-abort">Abort</button>
+            <button class="btn" id="btn-t-export">Export report</button>
+          </div>
+          <div id="t-export"></div>
+        </div>
+        <div class="card first-on-phone">
+          <div class="card-head"><h2>Current step</h2></div>
+          <div id="t-prompt" class="prompt"><p class="muted">Press <b>Run all</b>, or ▶ on a single step.</p></div>
+          <details class="adv">
+            <summary>Settings</summary>
+            <div class="settings">
+              <label class="field">Battery min mV<input id="cfg-bmin" type="number" value="3500"></label>
+              <label class="field">Battery max mV<input id="cfg-bmax" type="number" value="4250"></label>
+              <label class="field">Voice min frames<input id="cfg-vmin" type="number" value="20"></label>
+              <label class="field">Voice timeout s<input id="cfg-vto" type="number" value="20"></label>
+              <label class="field">Keys timeout s<input id="cfg-kto" type="number" value="180"></label>
+              <label class="field">Key latency max ms<input id="cfg-klat" type="number" value="50"></label>
+              <label class="field">IR addr<input id="cfg-iraddr" class="mono" value="0x04"></label>
+              <label class="field">IR code<input id="cfg-ircode" class="mono" value="0x08"></label>
+              <label class="field">IR timeout ms<input id="cfg-irto" type="number" value="1500"></label>
+              <label class="field">IR tries<input id="cfg-irtries" type="number" value="3"></label>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

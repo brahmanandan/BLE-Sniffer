@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Flashing and switching firmware</title>
+<defs><marker id="m475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="m475569s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#475569"/></marker><marker id="m1d4ed8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="m1d4ed8s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1d4ed8"/></marker><marker id="mb45309" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><marker id="mb45309s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#b45309"/></marker></defs>
+<rect width="1000" height="600" fill="#ffffff"/>
+<text x="28" y="36" font-size="21" font-weight="700" fill="#0f172a">Flashing and switching firmware</text>
+<text x="28" y="60" font-size="13.5" fill="#475569">backend/flash.py tool | sniffer — or the Firmware buttons in the app. Bonds and the jig identity survive a reflash.</text>
+<rect x="390" y="86" width="220" height="46" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="1.6"/>
+<text x="500.0" y="100.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">Start: stop the bridge</text>
+<text x="500.0" y="117.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">(or use the app buttons)</text>
+<path d="M500,132 L500,160" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<polygon points="500,163.0 665.0,215 500,267.0 335.0,215" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="500" y="215.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">What runs on the board now?</text>
+<path d="M335,215 L190,215 L190,262" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#m1d4ed8)"/>
+<rect x="210.0" y="193.2" width="104.1" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="262" y="203.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1d4ed8" text-anchor="middle" dominant-baseline="middle">xiao-test-tool</text>
+<path d="M665,215 L810,215 L810,262" fill="none" stroke="#b45309" stroke-width="1.6" marker-end="url(#mb45309)"/>
+<rect x="652.4" y="193.2" width="171.3" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="738" y="203.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b45309" text-anchor="middle" dominant-baseline="middle">Nordic sniffer / unknown</text>
+<rect x="70" y="262" width="240" height="92" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="190.0" y="284.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Automatic</text>
+<text x="190.0" y="300.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">flash.py sends {&quot;cmd&quot;:&quot;dfu&quot;}</text>
+<text x="190.0" y="315.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">→ board reboots into</text>
+<text x="190.0" y="331.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">the UF2 bootloader</text>
+<rect x="690" y="262" width="240" height="92" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="810.0" y="284.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Manual</text>
+<text x="810.0" y="300.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Double-tap RST</text>
+<text x="810.0" y="315.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">(two taps within ~0.5 s)</text>
+<text x="810.0" y="331.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">LED pulses</text>
+<path d="M190,354 L190,400 L380,400" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<path d="M810,354 L810,400 L620,400" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="380" y="372" width="240" height="58" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="500.0" y="392.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">USB drive appears:</text>
+<text x="500.0" y="409.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">XIAO-BOOT or XIAO-SENSE</text>
+<path d="M500,430 L500,462" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="330" y="462" width="340" height="58" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="500.0" y="482.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">Copy the UF2 → board resets by itself</text>
+<text x="500.0" y="499.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">(a write error at the very end is normal)</text>
+<path d="M500,520 L500,548" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="360" y="548" width="280" height="40" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="500.0" y="568.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Bridge re-detects the board</text>
+<rect x="40" y="440" width="260" height="140" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="52" y="472.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#334155" text-anchor="start" dominant-baseline="middle">Which file?</text>
+<text x="52" y="487.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">tool: xiao_test_tool_full.uf2</text>
+<text x="52" y="502.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">(S140 SoftDevice + app — always</text>
+<text x="52" y="517.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">use it after the sniffer, which</text>
+<text x="52" y="532.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">overwrites part of the SoftDevice)</text>
+<text x="52" y="547.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">sniffer: sniffer_nrf52840dongle_4.1.0.uf2</text>
+<rect x="700" y="440" width="260" height="140" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="712" y="472.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#334155" text-anchor="start" dominant-baseline="middle">Kept across a reflash</text>
+<text x="712" y="487.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">• bonds with remotes</text>
+<text x="712" y="502.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">• jig identity key (/jig_irk.bin)</text>
+<text x="712" y="517.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">  so bonded remotes still</text>
+<text x="712" y="532.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">  recognise the jig</text>
+<text x="712" y="547.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#334155" text-anchor="start" dominant-baseline="middle">• reports/ on the PC</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 860" width="1000" height="860" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<title>Which firmware for which job?</title>
+<defs><marker id="m475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="m475569s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#475569"/></marker><marker id="m15803d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="m15803ds" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#15803d"/></marker><marker id="mb91c1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mb91c1cs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#b91c1c"/></marker></defs>
+<rect width="1000" height="860" fill="#ffffff"/>
+<text x="28" y="36" font-size="21" font-weight="700" fill="#0f172a">Which firmware for which job?</text>
+<text x="28" y="60" font-size="13.5" fill="#475569">Only one image runs at a time. Switching takes ~20 s (Ch. 4). For both roles at once, use a second XIAO.</text>
+<rect x="370" y="82" width="260" height="46" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="1.6"/>
+<text x="500.0" y="105.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">What do you want to do?</text>
+<path d="M500,128 L500,160" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<polygon points="500,160.0 715.0,225 500,290.0 285.0,225" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="500" y="200.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Read key presses, record voice,</text>
+<text x="500" y="216.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">read battery / GATT / device info,</text>
+<text x="500" y="233.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">send or learn IR, or run a</text>
+<text x="500" y="249.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">pass/fail test on a remote?</text>
+<path d="M285,225 L180,225 L180,282" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="214.9" y="203.2" width="30.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="230" y="213.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path d="M715,225 L820,225 L820,282" fill="none" stroke="#b91c1c" stroke-width="1.6" marker-end="url(#mb91c1c)"/>
+<rect x="753.3" y="203.2" width="23.4" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="765" y="213.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">no</text>
+<rect x="60" y="282" width="240" height="86" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="180.0" y="307.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">xiao-test-tool</text>
+<text x="180.0" y="325.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">BLE central + IR + battery</text>
+<text x="180.0" y="342.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">→ use the web app</text>
+<path d="M180,368 L180,400" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<polygon points="180,403.0 305.0,455 180,507.0 55.0,455" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="180" y="446.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Banner shows</text>
+<text x="180" y="463.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">“jig online”?</text>
+<path d="M180,507 L180,560" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="182.9" y="522.2" width="30.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="198" y="532.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path d="M305,455 L360,455 L360,560" fill="none" stroke="#b91c1c" stroke-width="1.6" marker-end="url(#mb91c1c)"/>
+<rect x="318.3" y="433.2" width="23.4" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="330" y="443.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">no</text>
+<rect x="290" y="560" width="160" height="104" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="370.0" y="582.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Flash it</text>
+<text x="370.0" y="597.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">app: Flash</text>
+<text x="370.0" y="612.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">xiao-test-tool</text>
+<text x="370.0" y="627.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">or flash.py tool</text>
+<text x="370.0" y="641.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">(double-tap RST)</text>
+<rect x="60" y="560" width="210" height="104" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="165.0" y="588.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Pair the remote</text>
+<text x="165.0" y="604.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">STB off · pairing mode</text>
+<text x="165.0" y="619.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Connect ▸ Scan ▸</text>
+<text x="165.0" y="635.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Connect ▸ Bond (Ch. 7)</text>
+<path d="M290,612 L270,612" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<path d="M165,664 L165,700" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="40" y="700" width="270" height="110" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="175.0" y="731.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Keys · Voice · IR · Test tabs</text>
+<text x="175.0" y="747.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">GATT, Remote info, battery, log</text>
+<text x="175.0" y="762.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Export report.json / .html</text>
+<text x="175.0" y="778.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">(Ch. 6, 8)</text>
+<polygon points="820,282.0 970.0,342 820,402.0 670.0,342" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="820" y="325.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Watch a real remote ⇄ STB</text>
+<text x="820" y="342.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">link without pairing</text>
+<text x="820" y="358.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">the remote to anything?</text>
+<path d="M820,402 L820,450" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="824.9" y="415.2" width="30.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="840" y="425.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path d="M670,342 L612,342 L612,470" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="628.3" y="320.2" width="23.4" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="640" y="330.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#475569" text-anchor="middle" dominant-baseline="middle">no</text>
+<rect x="530" y="470" width="165" height="92" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="612.5" y="492.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Neither image</text>
+<text x="612.5" y="508.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">fits: see</text>
+<text x="612.5" y="523.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Troubleshooting</text>
+<text x="612.5" y="539.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">(Ch. 10)</text>
+<rect x="720" y="450" width="220" height="92" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="830.0" y="479.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Nordic nRF Sniffer</text>
+<text x="830.0" y="496.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">+ Wireshark extcap</text>
+<text x="830.0" y="512.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">(not the web app)</text>
+<path d="M830,542 L830,580" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="710" y="580" width="240" height="96" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="830.0" y="604.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Flash it</text>
+<text x="830.0" y="620.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">flash.py sniffer, or app:</text>
+<text x="830.0" y="635.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Connect ▸ Firmware ▸</text>
+<text x="830.0" y="651.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f" text-anchor="middle" dominant-baseline="middle">Flash Nordic sniffer</text>
+<path d="M830,676 L830,712" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="700" y="712" width="260" height="98" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="830.0" y="737.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Capture in Wireshark (Ch. 9)</text>
+<text x="830.0" y="753.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Encrypted after bonding:</text>
+<text x="830.0" y="768.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">keys only readable via the jig.</text>
+<text x="830.0" y="784.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Flash xiao-test-tool back after.</text>
+<rect x="380" y="712" width="280" height="98" rx="10" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="520.0" y="744.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Need both at the same time?</text>
+<text x="520.0" y="761.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Use a second XIAO that</text>
+<text x="520.0" y="777.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">stays on the sniffer image.</text>
+</svg>

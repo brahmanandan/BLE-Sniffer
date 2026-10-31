@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 975" width="1000" height="975" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<title>How the jig connects, pairs and checks a link</title>
+<defs><marker id="m475569" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker><marker id="m475569s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#475569"/></marker><marker id="m6d28d9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6d28d9"/></marker><marker id="m6d28d9s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#6d28d9"/></marker><marker id="m15803d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="m15803ds" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#15803d"/></marker><marker id="mb91c1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mb91c1cs" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#b91c1c"/></marker></defs>
+<rect width="1000" height="975" fill="#ffffff"/>
+<text x="28" y="36" font-size="21" font-weight="700" fill="#0f172a">How the jig connects, pairs and checks a link</text>
+<text x="28" y="60" font-size="13.5" fill="#475569">Firmware logic in ble_central.cpp (v0.3). Only the session&#x27;s locked remote is followed; Pair retries missed connections.</text>
+<rect x="370" y="82" width="260" height="48" rx="10" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="500.0" y="106.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#4c1d95" text-anchor="middle" dominant-baseline="middle">Remote advertises</text>
+<path d="M500,130 L500,156" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<polygon points="500,158.0 680.0,216 500,274.0 320.0,216" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="500" y="207.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">What kind of advert?</text>
+<text x="500" y="224.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">(DIRECT badge · advert flags)</text>
+<path d="M320,216 L150,216 L150,300" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="141.1" y="194.8" width="157.8" height="18.3" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="220" y="204.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">undirected, discoverable</text>
+<path d="M500,274 L500,300" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="487.7" y="270.4" width="180.5" height="31.3" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="578" y="279.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">directed at the jig, or</text>
+<text x="578" y="292.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">undirected + not discoverable</text>
+<path d="M680,216 L850,216 L850,300" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="671.5" y="194.8" width="201.0" height="18.3" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="772" y="204.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">directed elsewhere / flags 0x04</text>
+<rect x="40" y="300" width="220" height="116" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="150.0" y="328.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Pairing mode</text>
+<text x="150.0" y="343.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">(PAIRING badge, flags 0x05/06)</text>
+<text x="150.0" y="358.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">bonded remote → delete old bond</text>
+<text x="150.0" y="373.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">first, connect, pair fresh</text>
+<text x="150.0" y="387.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">new remote → press Pair</text>
+<polygon points="500,300.0 650.0,358 500,416.0 350.0,358" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="500" y="349.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Fresh-pair mode?</text>
+<text x="500" y="366.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">(after a silent link)</text>
+<rect x="745" y="300" width="215" height="116" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="852.5" y="328.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="700" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">Not for the jig</text>
+<text x="852.5" y="343.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">Reconnecting to its own host,</text>
+<text x="852.5" y="358.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">or another bonded remote while</text>
+<text x="852.5" y="373.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">the session is locked. Ignored.</text>
+<text x="852.5" y="387.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">STB off · pairing mode · Pair</text>
+<path d="M500,416 L500,446" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="504.3" y="421.2" width="23.4" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="516" y="431.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">no</text>
+<path d="M650,358 L725,358 L725,440" fill="none" stroke="#b91c1c" stroke-width="1.6" marker-end="url(#mb91c1c)"/>
+<rect x="674.9" y="336.2" width="30.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="690" y="346.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">yes</text>
+<rect x="640" y="440" width="175" height="62" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="727.5" y="463.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">Ignore it — wait for</text>
+<text x="727.5" y="478.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">the pairing-mode advert</text>
+<rect x="380" y="446" width="240" height="62" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="500.0" y="468.9" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Connect + re-encrypt</text>
+<text x="500.0" y="485.1" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">with the stored keys</text>
+<path d="M150,416 L150,560 L380,560" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<path d="M500,508 L500,534" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="380" y="534" width="240" height="52" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="500.0" y="552.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Connect · discover GATT</text>
+<text x="500.0" y="567.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">pair if needed (Just Works)</text>
+<path d="M500,586 L500,612" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<rect x="330" y="612" width="340" height="62" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="500.0" y="635.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Read HID map, Report IDs, battery · subscribe</text>
+<text x="500.0" y="650.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">send ATV GET_CAPS (if the voice service exists)</text>
+<path d="M500,674 L500,700" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#m475569)"/>
+<polygon points="500,702.0 665.0,758 500,814.0 335.0,758" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="500" y="741.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Remote answers or sends</text>
+<text x="500" y="758.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">anything within 3 s?</text>
+<text x="500" y="774.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">(waits while pairing runs)</text>
+<path d="M335,758 L210,758 L210,820" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="254.9" y="736.2" width="30.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="270" y="746.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">yes</text>
+<path d="M665,758 L790,758 L790,820" fill="none" stroke="#b91c1c" stroke-width="1.6" marker-end="url(#mb91c1c)"/>
+<rect x="718.3" y="736.2" width="23.4" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="730" y="746.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">no</text>
+<rect x="70" y="820" width="280" height="130" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="1.6"/>
+<text x="210.0" y="853.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#14532d" text-anchor="middle" dominant-baseline="middle">LIVE</text>
+<text x="210.0" y="869.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">state.live = true</text>
+<text x="210.0" y="885.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Keys, voice and battery flow.</text>
+<text x="210.0" y="900.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Link stays up while in use; the</text>
+<text x="210.0" y="916.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#14532d" text-anchor="middle" dominant-baseline="middle">Fire TV remote also reconnects fine.</text>
+<rect x="620" y="820" width="320" height="130" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="780.0" y="853.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">SILENT</text>
+<text x="780.0" y="869.4" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">banner “silent ⚠” · state.live = false</text>
+<text x="780.0" y="885.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">Jig drops the link and enters fresh-pair</text>
+<text x="780.0" y="900.6" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">mode: ignores directed reconnects until</text>
+<text x="780.0" y="916.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#7f1d1d" text-anchor="middle" dominant-baseline="middle">the remote shows its pairing-mode advert.</text>
+<path d="M940,885 L978,885 L978,471 L815,471" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#mb91c1c)"/>
+<rect x="955.4" y="634.4" width="45.3" height="31.3" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="978" y="643.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">next</text>
+<text x="978" y="656.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="10.5" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">advert</text>
+<text x="470" y="865.7" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">Android TV voice remote:</text>
+<text x="470" y="880.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">every reconnect ends here →</text>
+<text x="470" y="894.3" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#b91c1c" text-anchor="middle" dominant-baseline="middle">use pairing mode per session</text>
+</svg>

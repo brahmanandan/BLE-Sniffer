@@ -1,0 +1,8 @@
+# Python dependencies for the whole repo:  python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+#   backend/bridge.py + web app, backend/flash.py, firmware/make_uf2.py  -> backend/requirements.txt
+#   ble_probe.py (passive capture CLI)                                   -> pyserial (included there)
+-r backend/requirements.txt
+
+# Nordic's SnifferAPI is not on PyPI: it is vendored in extcap/SnifferAPI/ and found
+# automatically by ble_probe.py and the bridge. The Wireshark extcap plugin needs only
+# pyserial in the Python that Wireshark runs it with (see README §10).

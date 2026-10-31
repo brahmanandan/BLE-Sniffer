@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1210" width="960" height="1210" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+<title>BLE remote lifecycle — remote ⇄ test jig</title>
+<defs><marker id="m6d28d9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6d28d9"/></marker><marker id="m6d28d9s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#6d28d9"/></marker><marker id="m1d4ed8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="m1d4ed8s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#1d4ed8"/></marker><marker id="m334155" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="m334155s" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#334155"/></marker><marker id="m15803d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#15803d"/></marker><marker id="m15803ds" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M10,0 L0,5 L10,10 z" fill="#15803d"/></marker></defs>
+<rect width="960" height="1210" fill="#ffffff"/>
+<text x="28" y="36" font-size="21" font-weight="700" fill="#0f172a">BLE remote lifecycle — remote ⇄ test jig</text>
+<text x="28" y="60" font-size="13.5" fill="#475569">Arrows show who transmits. The jig (xiao-test-tool) plays the role the TV / STB normally plays.</text>
+<rect x="150" y="80" width="220" height="58" rx="10" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="260.0" y="100.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#4c1d95" text-anchor="middle" dominant-baseline="middle">Remote</text>
+<text x="260.0" y="117.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#4c1d95" text-anchor="middle" dominant-baseline="middle">BLE peripheral</text>
+<rect x="590" y="80" width="220" height="58" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="700.0" y="100.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">Test jig (XIAO)</text>
+<text x="700.0" y="117.5" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1e3a8a" text-anchor="middle" dominant-baseline="middle">BLE central · stand-in host</text>
+<line x1="260" y1="138" x2="260" y2="1120" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 5"/>
+<line x1="700" y1="138" x2="700" y2="1120" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 5"/>
+<rect x="40" y="160" width="880" height="210" rx="10" fill="#ede9fe" fill-opacity="0.55" stroke="#6d28d9" stroke-opacity="0.6"/>
+<text x="56" y="178.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#4c1d95" text-anchor="start" dominant-baseline="middle">1 · First pairing</text>
+<text x="56" y="197.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#4c1d95" text-anchor="start" dominant-baseline="middle">Remote in pairing mode, STB off. One time per remote (per session for the Android TV voice remote).</text>
+<path d="M260,225 L692,225" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="293.6" y="204.2" width="372.9" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="214.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">ADV_IND — connectable, LE-discoverable flags (PAIRING)</text>
+<path d="M700,262 L268,262" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#m1d4ed8)"/>
+<rect x="438.0" y="241.2" width="83.9" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="251.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1d4ed8" text-anchor="middle" dominant-baseline="middle">CONNECT_IND</text>
+<path d="M700,299 L268,299" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#m334155)" marker-start="url(#m334155s)"/>
+<rect x="266.7" y="278.2" width="426.6" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="288.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#334155" text-anchor="middle" dominant-baseline="middle">SMP pairing — Just Works (both tested remotes: legacy pairing)</text>
+<path d="M700,336 L268,336" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#m334155)" marker-start="url(#m334155s)"/>
+<rect x="290.2" y="315.2" width="379.6" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="325.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#334155" text-anchor="middle" dominant-baseline="middle">key distribution — LTK, IRK → bond stored on both sides</text>
+<rect x="40" y="385" width="880" height="175" rx="10" fill="#dbeafe" fill-opacity="0.55" stroke="#1d4ed8" stroke-opacity="0.6"/>
+<text x="56" y="403.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#1e3a8a" text-anchor="start" dominant-baseline="middle">2 · Link set-up</text>
+<text x="56" y="422.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#1e3a8a" text-anchor="start" dominant-baseline="middle">Done by the jig on every connection.</text>
+<path d="M700,442 L268,442" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#m1d4ed8)"/>
+<rect x="246.5" y="421.2" width="467.0" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="431.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1d4ed8" text-anchor="middle" dominant-baseline="middle">GATT discovery + reads (HID report map, Device Information, battery)</text>
+<path d="M700,479 L268,479" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#m1d4ed8)"/>
+<rect x="266.7" y="458.2" width="426.6" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="468.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1d4ed8" text-anchor="middle" dominant-baseline="middle">write CCCDs = subscribe (keys, battery, voice) · ATV: GET_CAPS</text>
+<path d="M260,516 L692,516" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="357.4" y="495.2" width="245.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="505.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">ATV voice caps reply → link is LIVE</text>
+<rect x="40" y="575" width="880" height="95" rx="10" fill="#f1f5f9" fill-opacity="0.55" stroke="#334155" stroke-opacity="0.6"/>
+<text x="56" y="593.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#0f172a" text-anchor="start" dominant-baseline="middle">3 · Idle</text>
+<text x="56" y="612.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#0f172a" text-anchor="start" dominant-baseline="middle">Remote sleeps between events: interval × (slave latency + 1), e.g. 20 ms × 50 ≈ 1 s.</text>
+<path d="M700,642 L268,642" fill="none" stroke="#334155" stroke-width="1.6" marker-end="url(#m334155)" marker-start="url(#m334155s)"/>
+<rect x="307.0" y="621.2" width="346.0" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="631.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#334155" text-anchor="middle" dominant-baseline="middle">empty link-layer packets keep the connection alive</text>
+<rect x="40" y="685" width="880" height="95" rx="10" fill="#dcfce7" fill-opacity="0.55" stroke="#15803d" stroke-opacity="0.6"/>
+<text x="56" y="703.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#14532d" text-anchor="start" dominant-baseline="middle">4 · Key press</text>
+<path d="M260,745 L692,745" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="333.9" y="724.2" width="292.2" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="734.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">HID input report (notification) → Keys tab</text>
+<rect x="40" y="795" width="880" height="160" rx="10" fill="#dcfce7" fill-opacity="0.55" stroke="#15803d" stroke-opacity="0.6"/>
+<text x="56" y="813.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#14532d" text-anchor="start" dominant-baseline="middle">5 · Voice (Android TV Voice v1.0, hold-to-talk)</text>
+<text x="56" y="832.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#14532d" text-anchor="start" dominant-baseline="middle">Mic button held. Audio stops on release or at the 15 s cap.</text>
+<path d="M260,858 L692,858" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="387.6" y="837.2" width="184.7" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="847.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">voice control: AUDIO_START</text>
+<path d="M260,895 L692,895" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="290.2" y="874.2" width="379.6" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="884.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">IMA-ADPCM 16 kHz audio · 20-byte notifications, ~400 /s</text>
+<path d="M260,932 L692,932" fill="none" stroke="#15803d" stroke-width="1.6" marker-end="url(#m15803d)"/>
+<rect x="391.0" y="911.2" width="178.0" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="921.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#15803d" text-anchor="middle" dominant-baseline="middle">voice control: AUDIO_STOP</text>
+<rect x="40" y="970" width="880" height="150" rx="10" fill="#fff7ed" fill-opacity="0.55" stroke="#c2410c" stroke-opacity="0.6"/>
+<text x="56" y="988.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#7c2d12" text-anchor="start" dominant-baseline="middle">6 · Reconnect after a drop or a jig reboot</text>
+<text x="56" y="1007.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7c2d12" text-anchor="start" dominant-baseline="middle">No pairing: encryption with the stored keys.</text>
+<path d="M260,1032 L692,1032" fill="none" stroke="#6d28d9" stroke-width="1.6" marker-end="url(#m6d28d9)"/>
+<rect x="293.6" y="1011.2" width="372.9" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="1021.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#6d28d9" text-anchor="middle" dominant-baseline="middle">ADV_DIRECT_IND — directed at the jig&#x27;s private address</text>
+<path d="M700,1069 L268,1069" fill="none" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#m1d4ed8)"/>
+<rect x="317.1" y="1048.2" width="325.8" height="19.6" rx="4" fill="#ffffff" opacity="0.92"/>
+<text x="480.0" y="1058.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#1d4ed8" text-anchor="middle" dominant-baseline="middle">CONNECT_IND + LL encryption with the stored LTK</text>
+<text x="480" y="1104.0" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#7c2d12" text-anchor="middle" dominant-baseline="middle">Fire TV remote: keys continue.  Android TV voice remote: link stays silent → pairing mode again (Ch. 7).</text>
+<rect x="40" y="1135" width="880" height="58" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="480.0" y="1156.2" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">Battery: read once after encryption, then the remote notifies on change (Battery Level 0x2A19).</text>
+<text x="480.0" y="1171.8" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#334155" text-anchor="middle" dominant-baseline="middle">The Nordic sniffer can only watch such a link passively — once bonded it is encrypted (Ch. 9).</text>
+</svg>
